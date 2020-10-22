@@ -7,6 +7,6 @@ import java.net.MalformedURLException;
 import com.sadjesty.currencyconverter.util.Currency;
 
 public interface Convertor {
-	public BigDecimal convert(Currency fromCurrency, Currency toCurrency, BigDecimal amount)
+	public BigDecimal convert(String fromCurrency, String toCurrency, String amount)
 			throws IllegalArgumentException, MalformedURLException, IOException;
 }

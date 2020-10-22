@@ -6,7 +6,7 @@ package com.sadjesty.currencyconverter.util;
  */
 
 public enum Currency {
-	USD("USD"), BTC("BTC");
+	BTC("BTC"), USD("USD"), RUB("RUB"), EUR("EUR");
 	
 	private final String symbol;
 	

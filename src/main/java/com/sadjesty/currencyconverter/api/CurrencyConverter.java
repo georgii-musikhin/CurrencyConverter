@@ -33,16 +33,17 @@ public class CurrencyConverter implements Convertor {
 	 * @param amount amount of money in fromCurrency
 	 * @return amount of money in toCurrency
 	 */
-	public BigDecimal convert(Currency fromCurrency, Currency toCurrency, BigDecimal amount)
+	public BigDecimal convert(String fromCurrency, String toCurrency, String amount)
 			throws IllegalArgumentException, MalformedURLException, IOException  {
+		BigDecimal amounBD = new BigDecimal(amount);
 		BigDecimal result;
-	
+		
 		if(fromCurrency == null || toCurrency == null) {
 			throw new IllegalArgumentException("Please, input both currencies");
-		} else if (amount.equals(new BigDecimal(0))) {
+		} else if (amounBD.equals(new BigDecimal(0))) {
 			result = new BigDecimal(0);
 		} else {
-			result = amount.multiply(calculateRates(fromCurrency, toCurrency));
+			result = amounBD.multiply(calculateRates(Currency.valueOf(fromCurrency), Currency.valueOf(toCurrency)));
 		}
 		
 		return result.round(new MathContext(4, RoundingMode.HALF_EVEN));
@@ -70,10 +71,4 @@ public class CurrencyConverter implements Convertor {
 			throw new RuntimeException(exceptionMessage);
 		}
 	}
-	
-	public static void main(String[] args) throws IllegalArgumentException, MalformedURLException, IOException {
-		CurrencyConverter convertor = new CurrencyConverter("fa40569c891e1936689e");
-		System.out.println(convertor.convert(Currency.BTC, Currency.USD, new BigDecimal(0.003)));
-	}
-
 }
