@@ -4,5 +4,6 @@ Java currency converter with data base This is project on Java provides currency
 
 This application use:
 
-Web-service https://www.currencyconverterapi.com - which provides API for currencies rates;
-Data base service - MySQL.
+1)Web-service https://www.currencyconverterapi.com - which provides API for currencies rates; 
+
+2)Data base service - MySQL.
